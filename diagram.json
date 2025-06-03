@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -262.2, "left": -170, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -144.6, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -258.9,
+      "left": -82.2,
+      "attrs": { "temperature": "80" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -176.4,
+      "left": 51.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -176.4,
+      "left": 13.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -176.4,
+      "left": 32.6,
+      "attrs": { "color": "yellow" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -386, "left": -115.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "uno:5V", "bb1:bp.1", "blue", [ "v28.7", "h-197.8", "v-297.6" ] ],
+    [ "uno:2", "bb1:10b.j", "#8f4814", [ "v-28.8", "h-139.9" ] ],
+    [ "bb1:bp.7", "bb1:9b.j", "blue", [ "v0" ] ],
+    [ "bb1:bn.10", "bb1:12b.j", "black", [ "v0" ] ],
+    [ "bb1:20b.j", "uno:13", "limegreen", [ "v57.6", "h-57.6" ] ],
+    [ "uno:12", "bb1:22b.j", "yellow", [ "v-57.6", "h10.1" ] ],
+    [ "bb1:24b.j", "uno:11", "red", [ "v57.6", "h-76.8" ] ],
+    [ "bb1:19b.j", "bb1:bn.16", "black", [ "v0" ] ],
+    [ "bb1:21b.j", "bb1:bn.17", "black", [ "v0" ] ],
+    [ "bb1:23b.j", "bb1:bn.19", "black", [ "v0" ] ],
+    [ "servo1:GND", "bb1:4b.f", "black", [ "h-67.2", "v182.4", "h57.6" ] ],
+    [ "servo1:V+", "bb1:3b.f", "blue", [ "h-67.2", "v172.9", "h48" ] ],
+    [ "bb1:bn.3", "bb1:4b.j", "black", [ "v0" ] ],
+    [ "led1:A", "bb1:24b.g", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:23b.g", "", [ "$bb" ] ],
+    [ "led2:A", "bb1:20b.g", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:19b.g", "", [ "$bb" ] ],
+    [ "led3:A", "bb1:22b.g", "", [ "$bb" ] ],
+    [ "led3:C", "bb1:21b.g", "", [ "$bb" ] ],
+    [ "bb1:bp.2", "bb1:3b.j", "blue", [ "v0" ] ],
+    [ "servo1:PWM", "uno:9", "violet", [ "h-67.2", "v297.8", "h9.6" ] ],
+    [ "uno:GND.1", "bb1:bn.1", "black", [ "v-19.2", "h-153.3", "v-57.6" ] ],
+    [ "dht1:VCC", "bb1:9b.f", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:10b.f", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:11b.f", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:12b.f", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
