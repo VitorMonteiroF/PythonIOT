@@ -24,10 +24,10 @@ Desenvolver um sistema embarcado com sensores e atuadores que:
 ## 🛠️ Componentes Utilizados
 
 - **ESP32/Arduino (emulado ou físico)**
-- **Sensor DHT11 ou DHT22** (Temperatura e Umidade)
+- **Sensor DHT11** (Temperatura e Umidade)
 - **3 LEDs** (Verde, Amarelo e Vermelho)
 - **Servo Motor** (representa uma válvula de emergência)
-- **Broker MQTT** (como `mqtt-dashboard.com` ou `test.mosquitto.org`)
+- **Broker MQTT** (`test.mosquitto.org`)
 - **Node-RED** (para visualização dos dados)
 
 ---
@@ -36,7 +36,7 @@ Desenvolver um sistema embarcado com sensores e atuadores que:
 
 ### 📡 Monitoramento Ambiental
 
-- A cada **2 segundos**, o sensor **DHT22** mede a **temperatura** e a **umidade**.
+- A cada **2 segundos**, o sensor **DHT11** mede a **temperatura** e a **umidade**.
 - Os valores são exibidos no **Serial Monitor** e enviados via **MQTT** no formato JSON:
   ```json
   {"temp": 32, "umid": 48}
@@ -92,15 +92,6 @@ if (temp >= 70 || umi <= 10) {
 
 ---
 
-## ✅ Possíveis Melhorias
-
-- Substituir `Serial` por uma **biblioteca MQTT real** (como `PubSubClient`) para uso direto com Wi-Fi.
-- Adicionar **log de eventos**.
-- Armazenar dados em um **banco de dados remoto**.
-- Enviar **notificações** em caso de falha.
-
----
-
 ## 📸 Demonstração
 
-> *(Adicione aqui imagens ou GIFs da simulação no Wokwi e do dashboard no Node-RED, se desejar.)*
+> **
