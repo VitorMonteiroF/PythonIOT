@@ -1,0 +1,300 @@
+[
+    {
+        "id": "fe057b1ab8f67826",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3b040cbcc71840ed",
+        "type": "serial in",
+        "z": "fe057b1ab8f67826",
+        "name": "",
+        "serial": "1875e62e91ec3945",
+        "x": 70,
+        "y": 320,
+        "wires": [
+            [
+                "3fe4f74aabb4a33c"
+            ]
+        ]
+    },
+    {
+        "id": "3fe4f74aabb4a33c",
+        "type": "json",
+        "z": "fe057b1ab8f67826",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 210,
+        "y": 320,
+        "wires": [
+            [
+                "f22139930a1dcb47",
+                "3c95c57ab565c704",
+                "fc3e809be9372083"
+            ]
+        ]
+    },
+    {
+        "id": "f22139930a1dcb47",
+        "type": "change",
+        "z": "fe057b1ab8f67826",
+        "name": "temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.Temperatura",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "fdb65dd8d4238178"
+            ]
+        ]
+    },
+    {
+        "id": "3c95c57ab565c704",
+        "type": "change",
+        "z": "fe057b1ab8f67826",
+        "name": "Umid",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.Umidade",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 320,
+        "wires": [
+            [
+                "85ac09a4023b3bf8"
+            ]
+        ]
+    },
+    {
+        "id": "fdb65dd8d4238178",
+        "type": "ui_gauge",
+        "z": "fe057b1ab8f67826",
+        "name": "",
+        "group": "e5c3c99a6b7eb414",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "temp",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 530,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "85ac09a4023b3bf8",
+        "type": "ui_gauge",
+        "z": "fe057b1ab8f67826",
+        "name": "",
+        "group": "c6ace7ad8dd9bfa2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Umid",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 530,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fc3e809be9372083",
+        "type": "mqtt out",
+        "z": "fe057b1ab8f67826",
+        "name": "",
+        "topic": "4sit/GSVitorMonteiro",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e0768178014250bb",
+        "x": 420,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "dc3c55219eafb0bc",
+        "type": "mqtt in",
+        "z": "fe057b1ab8f67826",
+        "name": "",
+        "topic": "4sit/dados/GSVitorMonteiro",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e0768178014250bb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 440,
+        "y": 460,
+        "wires": [
+            [
+                "7f8f388abff57129"
+            ]
+        ]
+    },
+    {
+        "id": "7f8f388abff57129",
+        "type": "serial out",
+        "z": "fe057b1ab8f67826",
+        "name": "",
+        "serial": "fcc18e57ac669b64",
+        "x": 650,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1875e62e91ec3945",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM5",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "e5c3c99a6b7eb414",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "31ea0d8446a0b3ae",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "c6ace7ad8dd9bfa2",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "31ea0d8446a0b3ae",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e0768178014250bb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "fcc18e57ac669b64",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM5",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "31ea0d8446a0b3ae",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
